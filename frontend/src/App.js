@@ -83,7 +83,7 @@ const LandingPage = ({ onEnterStudio }) => {
         >
           <Sparkles size={18} style={{ color: '#15803D' }} />
         </div>
-        <span style={{ fontSize: '17px', fontWeight: '800', color: '#141C16', letterSpacing: '-0.02em' }}>
+        <span style={{ fontSize: '15px', fontWeight: '800', color: '#141C16', letterSpacing: '-0.02em' }}>
           VectorFlow
         </span>
       </div>
@@ -99,12 +99,12 @@ const LandingPage = ({ onEnterStudio }) => {
       >
         <h1
           style={{
-            fontSize: '42px',
+            fontSize: '34px',
             fontWeight: '850',
             color: '#141C16',
             lineHeight: '1.15',
             letterSpacing: '-0.04em',
-            margin: '0 0 14px 0',
+            margin: '0 0 10px 0',
           }}
         >
           Build AI Pipelines.
@@ -113,11 +113,11 @@ const LandingPage = ({ onEnterStudio }) => {
         </h1>
         <p
           style={{
-            fontSize: '15px',
+            fontSize: '13px',
             color: '#4B554F',
             lineHeight: '1.6',
-            margin: '0 auto 28px auto',
-            maxWidth: '540px',
+            margin: '0 auto 22px auto',
+            maxWidth: '480px',
           }}
         >
           Drag component blocks onto an infinite canvas to create powerful AI agents.
@@ -131,7 +131,7 @@ const LandingPage = ({ onEnterStudio }) => {
       </div>
 
       {/* Equal spacer between button and pipeline */}
-      <div style={{ height: '56px' }} />
+      <div style={{ height: '40px' }} />
 
       {/* 3. Perfect Grid/Flex convergence workspace */}
       <div
@@ -155,11 +155,11 @@ const LandingPage = ({ onEnterStudio }) => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#86EFAC' }} />
-            <span style={{ fontSize: '11px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
+            <span style={{ fontSize: '10px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
               Input
             </span>
           </div>
-          <div style={{ fontSize: '12px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <div style={{ fontSize: '11px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             customer_query.txt
           </div>
         </div>
@@ -202,11 +202,11 @@ const LandingPage = ({ onEnterStudio }) => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ADE80' }} />
-              <span style={{ fontSize: '11px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
+              <span style={{ fontSize: '10px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
                 Prompt template
               </span>
             </div>
-            <div style={{ fontSize: '12px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div style={{ fontSize: '11px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               system_prompt.md
             </div>
           </div>
@@ -241,11 +241,11 @@ const LandingPage = ({ onEnterStudio }) => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10B981' }} />
-              <span style={{ fontSize: '11px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
+              <span style={{ fontSize: '10px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
                 LLM Engine
               </span>
             </div>
-            <div style={{ fontSize: '12px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div style={{ fontSize: '11px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               claude-3.5-sonnet
             </div>
           </div>
@@ -279,11 +279,11 @@ const LandingPage = ({ onEnterStudio }) => {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#059669' }} />
-              <span style={{ fontSize: '11px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
+              <span style={{ fontSize: '10px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
                 Database
               </span>
             </div>
-            <div style={{ fontSize: '12px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <div style={{ fontSize: '11px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               user_context_db
             </div>
           </div>
@@ -318,11 +318,11 @@ const LandingPage = ({ onEnterStudio }) => {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#059669' }} />
-            <span style={{ fontSize: '11px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
+            <span style={{ fontSize: '10px', fontWeight: '800', color: '#141C16', textTransform: 'uppercase' }}>
               Output
             </span>
           </div>
-          <div style={{ fontSize: '12px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          <div style={{ fontSize: '11px', fontWeight: '600', color: '#4B554F', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
             email_response.json
           </div>
         </div>
