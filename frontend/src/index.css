@@ -6,9 +6,10 @@
    ======================================== */
 
 html {
-  font-size: 13px; /* Lock base so rem values are consistent across all browsers */
-  -webkit-text-size-adjust: 100%; /* prevent iOS from auto-scaling text */
+  font-size: 13px;
+  -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  zoom: 0.85; /* Scale entire UI down to match typical 125% Windows display scaling */
 }
 
 :root {
