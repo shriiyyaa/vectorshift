@@ -57,7 +57,7 @@ export const BaseNode = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '12px 14px',
+          padding: '8px 12px',
           borderBottom: '1px solid rgba(0,0,0,0.04)',
         }}
       >
@@ -68,23 +68,23 @@ export const BaseNode = ({
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '32px',
-                height: '32px',
-                borderRadius: '10px',
+                width: '28px',
+                height: '28px',
+                borderRadius: '8px',
                 backgroundColor: iconBg,
                 color: '#1A1D26',
                 boxShadow: 'inset 0 -1px 2px rgba(0,0,0,0.06)',
               }}
             >
-              <Icon size={17} strokeWidth={2} />
+              <Icon size={14} strokeWidth={2} />
             </div>
           )}
           <div>
-            <div style={{ fontWeight: '650', fontSize: '13px', color: '#1A1D26', lineHeight: '1.3' }}>
+            <div style={{ fontWeight: '650', fontSize: '12px', color: '#1A1D26', lineHeight: '1.2' }}>
               {title}
             </div>
             {subtitle && (
-              <div style={{ fontSize: '11px', color: '#9CA3AF', lineHeight: '1.2', marginTop: '1px' }}>
+              <div style={{ fontSize: '10px', color: '#9CA3AF', lineHeight: '1.2', marginTop: '1px' }}>
                 {subtitle}
               </div>
             )}
@@ -100,7 +100,7 @@ export const BaseNode = ({
       </div>
 
       {/* Body Content */}
-      <div style={{ padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: '10px', flexGrow: 1 }}>
+      <div style={{ padding: '8px 12px', display: 'flex', flexDirection: 'column', gap: '8px', flexGrow: 1 }}>
         {children}
       </div>
 
