@@ -9,7 +9,10 @@ html {
   font-size: 13px;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  zoom: 0.85; /* Scale entire UI down to match typical 125% Windows display scaling */
+  zoom: 0.85;
+  width: 117.65%;   /* 100/0.85 — fills viewport after zoom shrinks it */
+  height: 117.65%;
+  overflow: hidden;
 }
 
 :root {
