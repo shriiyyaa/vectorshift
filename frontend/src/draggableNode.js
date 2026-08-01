@@ -47,11 +47,11 @@ export const DraggableNode = ({ type, label }) => {
       draggable
       style={{
         cursor: 'grab',
-        padding: '11px 14px',
+        padding: '9px 12px',
         display: 'flex',
         alignItems: 'center',
-        gap: '12px',
-        borderRadius: '14px',
+        gap: '10px',
+        borderRadius: '12px',
         background: config.tint,
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
@@ -87,23 +87,23 @@ export const DraggableNode = ({ type, label }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          width: '38px',
-          height: '38px',
-          borderRadius: '11px',
+          width: '32px',
+          height: '32px',
+          borderRadius: '9px',
           backgroundColor: config.bg,
           color: '#FFFFFF',
           flexShrink: 0,
         }}
       >
-        <IconComponent size={18} strokeWidth={2.2} />
+        <IconComponent size={15} strokeWidth={2.2} />
       </div>
 
       {/* Text */}
       <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, overflow: 'hidden' }}>
-        <span style={{ color: '#141C16', fontSize: '13px', fontWeight: '650', lineHeight: '1.35' }}>
+        <span style={{ color: '#141C16', fontSize: '12px', fontWeight: '650', lineHeight: '1.3' }}>
           {label}
         </span>
-        <span style={{ color: '#4B554F', fontSize: '11px', lineHeight: '1.3', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+        <span style={{ color: '#4B554F', fontSize: '10.5px', lineHeight: '1.3', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
           {config.desc}
         </span>
       </div>

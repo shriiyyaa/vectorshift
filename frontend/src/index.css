@@ -5,6 +5,10 @@
    ALL GREEN PALETTE — Soft, Premium, Playful
    ======================================== */
 
+html {
+  font-size: 14px; /* Lock base so rem values are consistent across all browsers */
+}
+
 :root {
   /* Background */
   --bg-root: #F7FAF7;
