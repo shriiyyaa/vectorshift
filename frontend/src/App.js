@@ -743,7 +743,7 @@ function App() {
       {/* Sidebar Toggle Button (Floating) — only visible on mobile (replaces hidden sidebar) */}
       <button
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        className="sidebar-toggle-btn"
+        className={`sidebar-toggle-btn ${isSidebarOpen ? 'open' : ''}`}
         style={{
           position: 'absolute',
           bottom: '32px',
@@ -763,8 +763,7 @@ function App() {
           outline: 'none',
         }}
       >
-        Blocks
-      </button>
+        <span className='sidebar-toggle-label'>Blocks</span>`r`n        <span aria-hidden='true'>{isSidebarOpen ? '‹' : '›'}</span>`r`n      </button>
 
       {/* Empty state hint */}
       <EmptyCanvasHint />
