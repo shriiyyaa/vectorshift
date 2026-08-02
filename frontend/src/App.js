@@ -415,9 +415,7 @@ const WelcomeOverlay = () => {
 
   return (
     <div className="welcome-overlay">
-      <div className="welcome-card">
-        <div style={{ fontSize: '44px', marginBottom: '16px' }}>👋</div>
-
+      <div className="welcome-card">`r`n
         <h1
           style={{
             margin: '0 0 10px 0',
