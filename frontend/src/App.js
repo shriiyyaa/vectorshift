@@ -27,8 +27,8 @@ const LandingPage = ({ onEnterStudio }) => {
     <div
       className="landing-grid"
       style={{
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '100%',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -719,8 +719,8 @@ function App() {
     <div
       style={{
         display: 'flex',
-        height: '100vh',
-        width: '100vw',
+        height: '100%',
+        width: '100%',
         overflow: 'hidden',
         backgroundColor: '#EFF4EF',
         fontFamily: 'Inter, system-ui, sans-serif',

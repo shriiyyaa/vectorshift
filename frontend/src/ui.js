@@ -229,8 +229,8 @@ const InnerPipelineUI = () => {
         />
         <Controls
           style={{
-            bottom: '200px', // aligned parallel to the bottom of the vertical sidebar pill (calc(100vh - 200px))
-            left: '420px', // clears the expanded floating sidebar pill (84px offset + 320px width + 16px gap)
+            bottom: '104px', // aligned parallel to the bottom of the vertical sidebar pill
+            left: '372px',   // sidebar left 84px + sidebar width 280px + 8px spacing
           }}
         />
         <MiniMap
