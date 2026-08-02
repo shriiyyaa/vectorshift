@@ -39,8 +39,8 @@ export const BaseNode = ({
             className="custom-handle"
             style={{
               background: '#FFFFFF',
-              width: '12px',
-              height: '12px',
+              width: '14px',
+              height: '14px',
               border: `2.5px solid ${isSource ? accentColor : '#D1D5DB'}`,
               borderRadius: '50%',
               boxShadow: '0 1px 4px rgba(0,0,0,0.1)',
