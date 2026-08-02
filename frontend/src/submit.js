@@ -45,7 +45,7 @@ export const SubmitButton = () => {
   return (
     <>
       <button
-        className="submit-btn"
+        className="navbar-submit-btn"
         style={{ gap: '5px', minWidth: '100px', height: '36px', justifyContent: 'center' }}
         onClick={handleSubmit}
       >
