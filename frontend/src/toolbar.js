@@ -38,7 +38,7 @@ export const PipelineToolbar = ({ isOpen, onClose }) => {
         top: '96px',
         left: '84px',
         width: '280px',
-        height: 'calc(100vh - 120px)',
+        height: 'calc(100vh - 180px)',
         backgroundColor: 'rgba(255, 255, 255, 0.92)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
