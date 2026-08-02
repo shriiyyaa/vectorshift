@@ -18,7 +18,7 @@ export const SubmitButton = () => {
     setIsOpen(true);
 
     const controller = new AbortController();
-    const timeoutId = window.setTimeout(() => controller.abort(), 15000);
+    const timeoutId = window.setTimeout(() => controller.abort(), 60000);
 
     try {
       const response = await fetch('https://vectorshift-i70c.onrender.com/pipelines/parse', {
@@ -40,7 +40,7 @@ export const SubmitButton = () => {
       alert(`Pipeline Analysis Result:\n\n- Total Nodes: ${data.num_nodes}\n- Total Edges: ${data.num_edges}\n- Is Directed Acyclic Graph (DAG): ${dagMessage}`);
     } catch (err) {
       console.error('Error submitting pipeline:', err);
-      setError(err.name === 'AbortError' ? 'The validation request timed out. The backend may be waking up; please retry.' : (err.message || 'Failed to connect to the backend.'));
+      setError(err.name === 'AbortError' ? 'The backend is taking longer to wake up. Please retry once it is ready.' : (err.message || 'Failed to connect to the backend.'));
     } finally {
       window.clearTimeout(timeoutId);
       setIsLoading(false);
