@@ -125,7 +125,14 @@ const InnerPipelineUI = () => {
     window.addEventListener('keydown', closeOnEscape);
     return () => window.removeEventListener('keydown', closeOnEscape);
   }, [quickInsert]);
-const openQuickInsert = useCallback((event) => {
+  useEffect(() => {
+    const resetConnection = (event) => {
+      if (event.key === 'Escape') setFlowKey((key) => key + 1);
+    };
+    window.addEventListener('keydown', resetConnection);
+    return () => window.removeEventListener('keydown', resetConnection);
+  }, []);
+  const openQuickInsert = useCallback((event) => {
     if (event.target.closest('.react-flow__node')) return;
     const bounds = reactFlowWrapper.current.getBoundingClientRect();
     const x = event.clientX - bounds.left;
