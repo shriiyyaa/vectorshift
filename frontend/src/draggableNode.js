@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   LogIn,
   LogOut,
@@ -32,6 +32,7 @@ const NODE_CONFIGS = {
 };
 
 export const DraggableNode = ({ type, label }) => {
+  const [isDragging, setIsDragging] = useState(false);
   const config = NODE_CONFIGS[type] || { icon: FileText, bg: '#86EFAC', tint: 'rgba(240,253,244,0.8)', border: 'rgba(134,239,172,0.4)', desc: '' };
   const IconComponent = config.icon;
 
@@ -43,10 +44,12 @@ export const DraggableNode = ({ type, label }) => {
 
   return (
     <div
-      onDragStart={(event) => onDragStart(event, type)}
+      onDragStart={(event) => { setIsDragging(true); onDragStart(event, type); }}
+      onDragEnd={() => setIsDragging(false)}
+      aria-label={`Drag ${label} onto the canvas`}
       draggable
       style={{
-        cursor: 'grab',
+        cursor: isDragging ? 'grabbing' : 'grab',
         padding: '9px 12px',
         display: 'flex',
         alignItems: 'center',
@@ -56,10 +59,12 @@ export const DraggableNode = ({ type, label }) => {
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         border: `1.5px solid ${config.border}`,
-        boxShadow: 'none', /* Removed default shadows */
+        boxShadow: isDragging ? '0 10px 24px rgba(22, 101, 52, 0.18)' : 'none',
         transition: 'transform 150ms cubic-bezier(0.16,1,0.3,1), box-shadow 150ms cubic-bezier(0.16,1,0.3,1), border-color 150ms ease',
         position: 'relative',
         userSelect: 'none',
+        opacity: isDragging ? 0.72 : 1,
+        transform: isDragging ? 'scale(0.98)' : undefined,
         backgroundImage: `linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.0) 60%), linear-gradient(180deg, ${config.tint}, ${config.tint})`,
       }}
       onMouseEnter={(e) => {

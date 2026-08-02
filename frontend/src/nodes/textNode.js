@@ -1,13 +1,17 @@
 import { useState, useMemo } from 'react';
 import { Position } from 'reactflow';
 import { BaseNode } from './baseNode';
+import { useStore } from '../store';
 import { FileText } from 'lucide-react';
 
 export const TextNode = ({ id, data }) => {
   const [currText, setCurrText] = useState(data?.text || '{{input}}');
+  const updateNodeField = useStore((state) => state.updateNodeField);
 
   const handleTextChange = (e) => {
-    setCurrText(e.target.value);
+    const nextText = e.target.value;
+    setCurrText(nextText);
+    updateNodeField(id, 'text', nextText);
   };
 
   const variables = useMemo(() => {

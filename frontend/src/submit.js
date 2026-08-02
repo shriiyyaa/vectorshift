@@ -17,11 +17,15 @@ export const SubmitButton = () => {
     setResults(null);
     setIsOpen(true);
 
+    const controller = new AbortController();
+    const timeoutId = window.setTimeout(() => controller.abort(), 15000);
+
     try {
       const response = await fetch('https://vectorshift-i70c.onrender.com/pipelines/parse', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nodes, edges }),
+        signal: controller.signal,
       });
 
       if (!response.ok) {
@@ -33,11 +37,12 @@ export const SubmitButton = () => {
       
       // Trigger browser alert to guarantee compliance with Part 4 instructions
       const dagMessage = data.is_dag ? 'Yes (No Cycles)' : 'No (Cycles Detected)';
-      alert(`Pipeline Analysis Result:\n\n• Total Nodes: ${data.num_nodes}\n• Total Edges: ${data.num_edges}\n• Is Directed Acyclic Graph (DAG): ${dagMessage}`);
+      alert(`Pipeline Analysis Result:\n\n- Total Nodes: ${data.num_nodes}\n- Total Edges: ${data.num_edges}\n- Is Directed Acyclic Graph (DAG): ${dagMessage}`);
     } catch (err) {
       console.error('Error submitting pipeline:', err);
-      setError(err.message || 'Failed to connect to the backend.');
+      setError(err.name === 'AbortError' ? 'The validation request timed out. The backend may be waking up; please retry.' : (err.message || 'Failed to connect to the backend.'));
     } finally {
+      window.clearTimeout(timeoutId);
       setIsLoading(false);
     }
   };
@@ -78,6 +83,13 @@ export const SubmitButton = () => {
                 <p style={{ margin: 0, fontSize: '13px', color: '#6B7280', lineHeight: '1.5' }}>
                   {error}
                 </p>
+                <button
+                  onClick={handleSubmit}
+                  className="toolbar-btn"
+                  style={{ width: '100%', justifyContent: 'center', marginTop: '16px' }}
+                >
+                  Retry validation
+                </button>
               </div>
             )}
 
