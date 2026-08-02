@@ -482,7 +482,7 @@ body, #root {
   border-radius: var(--radius-sm) !important;
   overflow: hidden;
   background: var(--surface-card) !important;
-  top: 50% !important;
+  top: calc(50% + 36px) !important;
   bottom: auto !important;
   left: 372px !important;
   transform: translateY(-50%) !important;
