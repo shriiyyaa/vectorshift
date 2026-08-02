@@ -665,9 +665,9 @@ body, #root {
     width: 72px !important;
     height: 10px !important;
     padding: 0 !important;
-    top: auto !important;
-    bottom: 126px !important;
-    left: 16px !important;
+    top: 50% !important;
+    bottom: auto !important;
+    left: 0 !important;
     transform: none;
     border-radius: 10px !important;
     font-size: 14px !important;
@@ -711,19 +711,21 @@ body, #root {
     display: flex !important;
   }
 
-  /* Group zoom controls with the compact mobile toolbar. */
+  /* Keep the zoom pill vertical and aligned with the edge tab. */
   .react-flow__controls {
-    left: 16px !important;
-    bottom: 78px !important;
-    top: auto !important;
+    left: 0 !important;
+    top: calc(50% + 20px) !important;
+    bottom: auto !important;
     transform: none !important;
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
+    border-radius: 0 12px 12px 0 !important;
+    overflow: hidden;
   }
 
   .react-flow__controls-button {
-    width: 32px !important;
-    height: 32px !important;
+    width: 42px !important;
+    height: 38px !important;
   }
 
   /* Scale landing page layout to fit small screens */
