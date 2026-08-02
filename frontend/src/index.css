@@ -658,6 +658,13 @@ body, #root {
 }
 
 @media (max-width: 768px) {
+  .sidebar-toggle-btn {
+    display: flex !important;
+    align-items: center;
+    gap: 6px;
+    bottom: 82px !important;
+    left: 16px !important;
+  }
   /* Navbar elements hiding */
   .navbar-undoredo,
   .navbar-counter,
