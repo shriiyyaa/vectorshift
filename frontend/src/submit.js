@@ -34,10 +34,6 @@ export const SubmitButton = () => {
 
       const data = await response.json();
       setResults(data);
-      
-      // Trigger browser alert to guarantee compliance with Part 4 instructions
-      const dagMessage = data.is_dag ? 'Yes (No Cycles)' : 'No (Cycles Detected)';
-      alert(`Pipeline Analysis Result:\n\n- Total Nodes: ${data.num_nodes}\n- Total Edges: ${data.num_edges}\n- Is Directed Acyclic Graph (DAG): ${dagMessage}`);
     } catch (err) {
       console.error('Error submitting pipeline:', err);
       setError(err.name === 'AbortError' ? 'The backend is taking longer to wake up. Please retry once it is ready.' : (err.message || 'Failed to connect to the backend.'));
