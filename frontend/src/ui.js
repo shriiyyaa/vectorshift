@@ -229,8 +229,10 @@ const InnerPipelineUI = () => {
         />
         <Controls
           style={{
-            bottom: '104px', // aligned parallel to the bottom of the vertical sidebar pill
+            top: '50%',
+            transform: 'translateY(-50%)',
             left: '372px',   // sidebar left 84px + sidebar width 280px + 8px spacing
+            bottom: 'auto',  // override default React Flow bottom positioning
           }}
         />
         <MiniMap
