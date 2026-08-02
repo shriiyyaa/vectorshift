@@ -125,17 +125,7 @@ const InnerPipelineUI = () => {
     window.addEventListener('keydown', closeOnEscape);
     return () => window.removeEventListener('keydown', closeOnEscape);
   }, [quickInsert]);
-
-  useEffect(() => {
-    const cancelConnection = (event) => {
-      if (event.key !== 'Escape') return;
-      window.dispatchEvent(new PointerEvent('pointerup', { bubbles: true }));
-      window.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }));
-    };
-    window.addEventListener('keydown', cancelConnection, true);
-    return () => window.removeEventListener('keydown', cancelConnection, true);
-  }, []);
-  const openQuickInsert = useCallback((event) => {
+const openQuickInsert = useCallback((event) => {
     if (event.target.closest('.react-flow__node')) return;
     const bounds = reactFlowWrapper.current.getBoundingClientRect();
     const x = event.clientX - bounds.left;
@@ -268,13 +258,13 @@ const InnerPipelineUI = () => {
         snapGrid={[16, 16]}
         snapToGrid
         isValidConnection={isValidConnection}
-        connectionLineType="straight"
+        connectionLineType="bezier"
         connectionLineStyle={{
           stroke: '#22C55E',
           strokeWidth: 3,
         }}
         defaultEdgeOptions={{
-          type: 'straight',
+          type: 'bezier',
           markerEnd: { type: MarkerType.ArrowClosed, color: '#22C55E' },
           animated: true,
           style: { stroke: '#22C55E', strokeWidth: 3 },
