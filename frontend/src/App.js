@@ -764,7 +764,8 @@ function App() {
         }}
       >
         <span className='sidebar-toggle-label'>Blocks</span>
-        <span aria-hidden='true'>{isSidebarOpen ? '‹' : '›'}</span>`r`n      </button>
+        <span aria-hidden='true'>{isSidebarOpen ? '‹' : '›'}</span>
+      </button>
 
       {/* Empty state hint */}
       <EmptyCanvasHint />
