@@ -136,7 +136,7 @@ const InnerPipelineUI = () => {
 
   useEffect(() => {
     const openFromShortcut = (event) => {
-      if ((event.key !== '/' && event.code !== 'Slash') || event.target.matches('input, textarea')) return;
+      if ((event.key !== '/' && event.key !== '?' && event.code !== 'Slash') || event.target.closest?.('input, textarea')) return;
       event.preventDefault();
       const bounds = reactFlowWrapper.current?.getBoundingClientRect();
       if (!bounds) return;
