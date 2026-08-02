@@ -12,14 +12,14 @@ export const useStore = create((set, get) => ({
     nodes: [],
     edges: [],
     nodeIDs: {},
-    tutorialStep: 0,       // 0-5 for the 6-step onboarding
+    tutorialStep: 0,       // 0-6 for the 7-step onboarding
     showWelcome: true,      // first-time welcome overlay
     showTutorial: true,     // bottom dock visible
 
     setTutorialStep: (step) => set({ tutorialStep: step }),
     dismissWelcome: () => set({ showWelcome: false }),
     dismissTutorial: () => set({ showTutorial: false }),
-    advanceTutorial: () => set((state) => ({ tutorialStep: Math.min(state.tutorialStep + 1, 5) })),
+    advanceTutorial: () => set((state) => ({ tutorialStep: Math.min(state.tutorialStep + 1, 6) })),
     
     getNodeID: (type) => {
         const newIDs = {...get().nodeIDs};

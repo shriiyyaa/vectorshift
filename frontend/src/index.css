@@ -731,3 +731,36 @@ body, #root {
     margin-bottom: -64px;
   }
 }
+
+.quick-insert-menu {
+  position: absolute;
+  z-index: 80;
+  width: 248px;
+  padding: 8px;
+  transform: translate(10px, 10px);
+  background: rgba(255, 255, 255, 0.97);
+  border: 1px solid rgba(34, 197, 94, 0.22);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(22, 101, 52, 0.16);
+  backdrop-filter: blur(18px);
+}
+
+.quick-insert-menu input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(34, 197, 94, 0.18);
+  border-radius: 9px;
+  padding: 9px 10px;
+  color: #141c16;
+  background: #f7faf7;
+  outline: none;
+  font: inherit;
+  font-size: 12px;
+}
+
+.quick-insert-menu input:focus { border-color: #22c55e; box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.12); }
+.quick-insert-hint { padding: 8px 6px 6px; color: #8f9e94; font-size: 10px; }
+.quick-insert-menu button { width: 100%; display: flex; align-items: center; justify-content: space-between; border: 0; border-radius: 8px; padding: 9px 8px; background: transparent; color: #141c16; cursor: pointer; font: inherit; font-size: 12px; text-align: left; }
+.quick-insert-menu button:hover { background: #ecfdf3; }
+.quick-insert-menu kbd { color: #8f9e94; font-size: 9px; font-family: inherit; }
+.quick-insert-empty { padding: 10px 6px; color: #8f9e94; font-size: 12px; }

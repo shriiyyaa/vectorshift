@@ -476,6 +476,8 @@ const WelcomeOverlay = () => {
             </div>
             <div style={{ fontSize: '12px', color: '#047857', marginTop: '2px' }}>
               Every block in the sidebar is draggable ↗
+              <br />
+              Double-click the canvas or press / for Quick Insert
             </div>
           </div>
         </div>
@@ -526,6 +528,7 @@ const TUTORIAL_STEPS = [
   { icon: Link, label: 'Connect' },
   { icon: Settings2, label: 'Configure' },
   { icon: Play, label: 'Run & Test' },
+  { icon: Sparkles, label: 'Quick Insert' },
   { icon: Send, label: 'Publish' },
   { icon: PartyPopper, label: "You're Ready!" },
 ];
@@ -816,6 +819,8 @@ const EmptyCanvasHint = () => {
       </p>
       <p style={{ fontSize: '12px', color: '#8F9E94', margin: 0 }}>
         Select any component from the sidebar and drop it here
+        <br />
+        <span style={{ color: '#22C55E' }}>Tip: double-click or press / to Quick Insert</span>
       </p>
 
       <style>{`

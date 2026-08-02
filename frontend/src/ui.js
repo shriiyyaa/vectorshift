@@ -1,6 +1,6 @@
 // ui.js — Premium Infinite Canvas with ReactFlow and provider wrappers
 
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useEffect, useState } from 'react';
 import ReactFlow, {
   Controls,
   Background,
@@ -104,6 +104,57 @@ const InnerPipelineUI = () => {
   const onConnect = useStore((state) => state.onConnect);
   const advanceTutorial = useStore((state) => state.advanceTutorial);
   const tutorialStep = useStore((state) => state.tutorialStep);
+  const [quickInsert, setQuickInsert] = useState(null);
+  const [quickQuery, setQuickQuery] = useState('');
+  const quickInsertRef = useRef(null);
+  const quickOptions = [
+    { type: 'text', label: 'Text Editor', keywords: 'text variables' },
+    { type: 'llm', label: 'LLM Engine', keywords: 'llm ai completion' },
+    { type: 'api', label: 'API Call', keywords: 'api rest integration' },
+    { type: 'prompt', label: 'Prompt Template', keywords: 'prompt template' },
+    { type: 'customInput', label: 'Input', keywords: 'input trigger' },
+    { type: 'customOutput', label: 'Output', keywords: 'output result' },
+  ];
+  const filteredQuickOptions = quickOptions.filter((option) => `${option.label} ${option.keywords}`.toLowerCase().includes(quickQuery.toLowerCase()));
+
+  useEffect(() => {
+    if (!quickInsert) return undefined;
+    quickInsertRef.current?.focus();
+    const closeOnEscape = (event) => { if (event.key === 'Escape') setQuickInsert(null); };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [quickInsert]);
+
+  const openQuickInsert = useCallback((event) => {
+    if (event.target.closest('.react-flow__node')) return;
+    const bounds = reactFlowWrapper.current.getBoundingClientRect();
+    const x = event.clientX - bounds.left;
+    const y = event.clientY - bounds.top;
+    setQuickQuery('');
+    setQuickInsert({ x, y, position: project({ x, y }) });
+  }, [project]);
+
+  useEffect(() => {
+    const openFromShortcut = (event) => {
+      if (event.key !== '/' || event.target.matches('input, textarea')) return;
+      event.preventDefault();
+      const bounds = reactFlowWrapper.current?.getBoundingClientRect();
+      if (!bounds) return;
+      const x = bounds.width / 2;
+      const y = bounds.height / 2;
+      setQuickQuery('');
+      setQuickInsert({ x, y, position: project({ x, y }) });
+    };
+    window.addEventListener('keydown', openFromShortcut);
+    return () => window.removeEventListener('keydown', openFromShortcut);
+  }, [project]);
+
+  const insertQuickNode = (option) => {
+    const nodeID = getNodeID(option.type);
+    addNode({ id: nodeID, type: option.type, position: quickInsert.position, data: getInitNodeData(nodeID, option.type) });
+    if (tutorialStep === 5) advanceTutorial();
+    setQuickInsert(null);
+  };
 
   const getInitNodeData = (nodeID, type) => ({
     id: nodeID,
@@ -194,6 +245,7 @@ const InnerPipelineUI = () => {
   return (
     <div ref={reactFlowWrapper} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
       <ReactFlow
+        onDoubleClick={openQuickInsert}
         nodes={nodes}
         edges={edges}
         onNodesChange={onNodesChange}
@@ -238,7 +290,16 @@ const InnerPipelineUI = () => {
         />
         <FloatingZoomHUD />
       </ReactFlow>
-    </div>
+      {quickInsert && (
+        <div className="quick-insert-menu" style={{ left: quickInsert.x, top: quickInsert.y }} onClick={(event) => event.stopPropagation()}>
+          <input ref={quickInsertRef} value={quickQuery} onChange={(event) => setQuickQuery(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter' && filteredQuickOptions[0]) insertQuickNode(filteredQuickOptions[0]); if (event.key === 'Escape') setQuickInsert(null); }} placeholder="Insert a component..." aria-label="Quick insert component" />
+          <div className="quick-insert-hint">Type a component and press Enter</div>
+          {filteredQuickOptions.slice(0, 5).map((option) => (
+            <button key={option.type} type="button" onClick={() => insertQuickNode(option)}><span>{option.label}</span><kbd>{option.type.toUpperCase()}</kbd></button>
+          ))}
+          {filteredQuickOptions.length === 0 && <div className="quick-insert-empty">No matching components</div>}
+        </div>
+      )}    </div>
   );
 };
 
