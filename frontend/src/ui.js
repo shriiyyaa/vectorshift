@@ -258,13 +258,14 @@ const InnerPipelineUI = () => {
         snapGrid={[16, 16]}
         snapToGrid
         isValidConnection={isValidConnection}
-        connectionLineType="smoothstep"
+        connectionLineType="bezier"
         connectionLineStyle={{
           stroke: '#22C55E',
           strokeWidth: 3,
         }}
         defaultEdgeOptions={{
-          type: 'smoothstep',
+          type: 'bezier',
+          markerEnd: { type: MarkerType.ArrowClosed, color: '#22C55E' },
           animated: true,
           style: { stroke: '#22C55E', strokeWidth: 3 },
         }}
