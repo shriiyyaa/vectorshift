@@ -10,6 +10,7 @@ import ReactFlow, {
   Panel,
   useViewport,
   useReactFlow,
+  MarkerType,
 } from 'reactflow';
 import { useStore } from './store';
 import { InputNode } from './nodes/inputNode';
