@@ -152,7 +152,7 @@ const InnerPipelineUI = () => {
   const insertQuickNode = (option) => {
     const nodeID = getNodeID(option.type);
     addNode({ id: nodeID, type: option.type, position: quickInsert.position, data: getInitNodeData(nodeID, option.type) });
-    if (tutorialStep === 5) advanceTutorial();
+    if (tutorialStep === 4) advanceTutorial();
     setQuickInsert(null);
   };
 
