@@ -10,7 +10,6 @@ import ReactFlow, {
   Panel,
   useViewport,
   useReactFlow,
-  MarkerType,
 } from 'reactflow';
 import { useStore } from './store';
 import { InputNode } from './nodes/inputNode';
@@ -243,7 +242,7 @@ const openQuickInsert = useCallback((event) => {
   );
 
   return (
-    <div ref={reactFlowWrapper} tabIndex={0} onKeyDown={(event) => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); event.currentTarget.blur(); } }} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+    <div ref={reactFlowWrapper} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
       <ReactFlow
         onDoubleClick={openQuickInsert}
         nodes={nodes}
@@ -265,7 +264,6 @@ const openQuickInsert = useCallback((event) => {
         }}
         defaultEdgeOptions={{
           type: 'bezier',
-          markerEnd: { type: MarkerType.ArrowClosed, color: '#22C55E' },
           animated: true,
           style: { stroke: '#22C55E', strokeWidth: 3 },
         }}
