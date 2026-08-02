@@ -244,7 +244,7 @@ const InnerPipelineUI = () => {
   );
 
   return (
-    <div ref={reactFlowWrapper} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+    <div ref={reactFlowWrapper} tabIndex={0} onKeyDown={(event) => { if (event.key === 'Escape') { event.preventDefault(); event.stopPropagation(); event.currentTarget.blur(); } }} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
       <ReactFlow
         onDoubleClick={openQuickInsert}
         nodes={nodes}
