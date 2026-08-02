@@ -482,6 +482,11 @@ body, #root {
   border-radius: var(--radius-sm) !important;
   overflow: hidden;
   background: var(--surface-card) !important;
+  top: 50% !important;
+  bottom: auto !important;
+  left: 372px !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
 }
 .react-flow__controls-button {
   background: var(--surface-card) !important;
@@ -688,6 +693,8 @@ body, #root {
   .react-flow__controls {
     left: 96px !important;
     bottom: 32px !important;
+    top: auto !important;
+    transform: none !important;
   }
 
   /* Scale landing page layout to fit small screens */

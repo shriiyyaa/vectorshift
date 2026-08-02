@@ -227,14 +227,7 @@ const InnerPipelineUI = () => {
           gap={24}
           size={2}
         />
-        <Controls
-          style={{
-            top: '50%',
-            transform: 'translateY(-50%)',
-            left: '372px',   // sidebar left 84px + sidebar width 280px + 8px spacing
-            bottom: 'auto',  // override default React Flow bottom positioning
-          }}
-        />
+        <Controls />
         <MiniMap
           nodeColor={() => '#22C55E'}
           maskColor="rgba(239, 244, 239, 0.7)"
