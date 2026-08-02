@@ -105,6 +105,7 @@ const InnerPipelineUI = () => {
   const advanceTutorial = useStore((state) => state.advanceTutorial);
   const tutorialStep = useStore((state) => state.tutorialStep);
   const [quickInsert, setQuickInsert] = useState(null);
+  const [flowKey, setFlowKey] = useState(0);
   const [quickQuery, setQuickQuery] = useState('');
   const quickInsertRef = useRef(null);
   const quickOptions = [
