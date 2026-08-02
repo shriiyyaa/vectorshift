@@ -35,8 +35,8 @@ export const PipelineToolbar = ({ isOpen, onClose }) => {
       className={`floating-sidebar ${isOpen ? 'open' : ''}`}
       style={{
         position: 'fixed',
-        top: '84px',
-        bottom: '72px',
+        top: '96px',
+        bottom: '104px',
         left: '84px',
         width: '280px',
         backgroundColor: 'rgba(255, 255, 255, 0.92)',

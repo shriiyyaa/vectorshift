@@ -483,14 +483,11 @@ body, #root {
   overflow: hidden;
   background: var(--surface-card) !important;
   position: fixed !important;
-  top: 84px !important;
-  bottom: 72px !important;
+  top: 50% !important;
   left: 372px !important;
+  transform: translateY(-50%) !important;
+  bottom: auto !important;
   height: auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  transform: none !important;
   margin: 0 !important;
 }
 .react-flow__controls-button {
