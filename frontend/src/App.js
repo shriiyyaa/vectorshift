@@ -415,7 +415,7 @@ const WelcomeOverlay = () => {
 
   return (
     <div className="welcome-overlay">
-      <div className="welcome-card">`r`n
+      <div className="welcome-card">
         <h1
           style={{
             margin: '0 0 10px 0',
