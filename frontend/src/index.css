@@ -764,3 +764,89 @@ body, #root {
 .quick-insert-menu button:hover { background: #ecfdf3; }
 .quick-insert-menu kbd { color: #8f9e94; font-size: 9px; font-family: inherit; }
 .quick-insert-empty { padding: 10px 6px; color: #8f9e94; font-size: 12px; }
+/* Tablet and mobile: preserve the canvas while making floating UI fit narrow viewports. */
+@media (max-width: 1100px) {
+  header {
+    width: calc(100% - 24px) !important;
+    top: 12px !important;
+  }
+
+  .floating-sidebar {
+    left: 12px !important;
+  }
+
+  .tutorial-dock {
+    width: calc(100% - 24px);
+    max-width: 760px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-radius: 18px;
+  }
+
+  .tutorial-dock::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tutorial-step {
+    flex: 0 0 auto;
+    padding: 6px 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    height: 52px !important;
+    padding: 0 10px !important;
+  }
+
+  header > div:first-child > div:first-child > div:last-child {
+    display: none !important;
+  }
+
+  header > div:last-child {
+    gap: 5px !important;
+  }
+
+  header .toolbar-btn {
+    min-width: 0 !important;
+    padding: 8px 10px !important;
+  }
+
+  .tutorial-dock {
+    bottom: 12px;
+    padding: 5px;
+  }
+
+  .tutorial-step {
+    gap: 0;
+    padding: 8px 10px;
+  }
+
+  .tutorial-step span {
+    display: none;
+  }
+
+  .tutorial-step.active span {
+    display: inline;
+    margin-left: 5px;
+  }
+
+  .tutorial-skip {
+    flex: 0 0 auto;
+    padding: 8px 10px;
+  }
+
+  .react-flow__minimap {
+    right: 10px !important;
+    bottom: 82px !important;
+    transform: scale(0.78);
+    transform-origin: bottom right;
+  }
+
+  .quick-insert-menu {
+    width: min(248px, calc(100vw - 32px));
+    max-width: calc(100vw - 32px);
+  }
+}
