@@ -711,12 +711,19 @@ body, #root {
     display: flex !important;
   }
 
-  /* Reposition ReactFlow zoom controls on mobile */
+  /* Group zoom controls with the compact mobile toolbar. */
   .react-flow__controls {
-    left: 96px !important;
-    bottom: 32px !important;
+    left: 16px !important;
+    bottom: 78px !important;
     top: auto !important;
     transform: none !important;
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .react-flow__controls-button {
+    width: 32px !important;
+    height: 32px !important;
   }
 
   /* Scale landing page layout to fit small screens */
